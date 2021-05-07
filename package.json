@@ -1,5 +1,5 @@
 {
-    "name": "React Projects - BePee",
+    "name": "React-Projects-BePee",
     "version": "1.0.0",
     "scripts": {
         "build:counter": "npm --prefix counter run build",

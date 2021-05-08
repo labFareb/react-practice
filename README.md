@@ -4,7 +4,7 @@
 
 - Add new projects
 - Deploy them
-- Add them to the portfolio
+- Add them to the portfolio.
 
 
 Project One: Tic Tac Toe

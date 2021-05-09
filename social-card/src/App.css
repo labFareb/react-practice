@@ -1,0 +1,28 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid coral;
+  padding: 0.5rem 1rem;
+}
+
+.card h2 {
+  /* TODO: The background image is not showing */
+  /* background-image: url("https://unsplash.com/photos/Coaz1Qe562o"); */
+}
+
+.actions {
+  display: flex;
+}
+
+.actions button {
+  border: none;
+  background-color: white;
+}

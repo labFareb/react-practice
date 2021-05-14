@@ -1,0 +1,36 @@
+.app {
+  background-color: lightblue;
+}
+
+.dashboard {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  /* justify-content: center;
+  align-items: center;
+  height: 100vh; */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: white;
+}
+
+.card h2 {
+  /* TODO: The background image is not showing */
+  /* background-image: url("https://unsplash.com/photos/Coaz1Qe562o"); */
+}
+
+.actions {
+  display: flex;
+}
+
+.actions button {
+  border: none;
+  background-color: white;
+}

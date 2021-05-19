@@ -8,7 +8,6 @@ class AddFishForm extends React.Component {
   imageRef = React.createRef();
 
   createFish = (event) => {
-    // 1.  stop the form from submitting
     event.preventDefault();
     const fish = {
       name: this.nameRef.current.value,
@@ -18,8 +17,9 @@ class AddFishForm extends React.Component {
       image: this.imageRef.current.value,
     };
     this.props.addFish(fish);
-    // refresh the form
+    console.log(fish);
     event.currentTarget.reset();
+    console.log(event.currentTarget);
   };
   render() {
     return (
@@ -33,10 +33,14 @@ class AddFishForm extends React.Component {
         />
         <select name="status" ref={this.statusRef}>
           <option value="available">Fresh!</option>
-          <option value="unavailable">Sold Out!</option>
+          <option value="unavailable">Out Of Stock</option>
         </select>
-
-        <textarea name="desc" ref={this.descRef} placeholder="Desc" />
+        <textarea
+          name="desc"
+          ref={this.descRef}
+          type="text"
+          placeholder="Desc"
+        />
         <input
           name="image"
           ref={this.imageRef}

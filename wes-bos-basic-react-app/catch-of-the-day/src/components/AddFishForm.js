@@ -38,7 +38,6 @@ class AddFishForm extends React.Component {
         <textarea
           name="desc"
           ref={this.descRef}
-          type="text"
           placeholder="Desc"
         />
         <input

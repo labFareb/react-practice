@@ -3,7 +3,7 @@
 # React Practice
 
 - Add new projects
-- Deploy them
+- Deploy them on www.netlify.com
 - Add them to the portfolio.
 
 

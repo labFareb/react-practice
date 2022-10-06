@@ -1,0 +1,49 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require("react");
+  var _reactJsxRuntime = require("react/jsx-runtime");
+  var _s = $RefreshSig$();
+  const SearchParams = () => {
+    _s();
+    const [location, setLocation] = _react.useState("Seattle, WA");
+    const [animal, setAnimal] = _react.useState("dog");
+    return (
+      /*#__PURE__*/_reactJsxRuntime.jsxs("div", {
+        className: "search-params",
+        children: [/*#__PURE__*/_reactJsxRuntime.jsxs("label", {
+          htmlFor: "location",
+          children: ["Location", /*#__PURE__*/_reactJsxRuntime.jsx("input", {
+            id: "location",
+            onChange: e => setLocation(e.target.value),
+            type: "text",
+            value: location,
+            placeholder: "Location"
+          })]
+        }), /*#__PURE__*/_reactJsxRuntime.jsxs("label", {
+          htmlFor: "animal",
+          children: ["Animal", /*#__PURE__*/_reactJsxRuntime.jsx("select", {
+            name: "animal",
+            id: "animal",
+            onChange: e => setAnimal(e.target.value)
+          })]
+        }), /*#__PURE__*/_reactJsxRuntime.jsx("button", {
+          children: "Submit"
+        })]
+      })
+    );
+  };
+  _s(SearchParams, "UQK6xCS26Reegx2Bvl/Vf89Es+g=");
+  _c = SearchParams;
+  exports.default = SearchParams;
+  var _c;
+  $RefreshReg$(_c, "SearchParams");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

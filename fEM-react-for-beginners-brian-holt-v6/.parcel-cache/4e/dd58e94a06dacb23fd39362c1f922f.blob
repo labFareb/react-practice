@@ -1,0 +1,19 @@
+var _reactDom = require("react-dom");
+require("./Pet");
+var _SearchParams = require('./SearchParams');
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+var _SearchParamsDefault = _parcelHelpers.interopDefault(_SearchParams);
+var _reactJsxRuntime = require("react/jsx-runtime");
+const App = () => {
+  return (
+    /*#__PURE__*/_reactJsxRuntime.jsxs("div", {
+      children: [/*#__PURE__*/_reactJsxRuntime.jsx("h1", {
+        children: "Adopt Me!"
+      }), /*#__PURE__*/_reactJsxRuntime.jsx(_SearchParamsDefault.default, {})]
+    })
+  );
+};
+_c = App;
+_reactDom.render(/*#__PURE__*/_reactJsxRuntime.jsx(App, {}), document.getElementById("root"));
+var _c;
+$RefreshReg$(_c, "App");

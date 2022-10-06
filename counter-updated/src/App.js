@@ -64,13 +64,13 @@ export default function App() {
         <p>Credits:</p>
         <ul>
           <li>
-            <a href="https://www.youtube.com/watch?v=0R6rZngcHGg" target="_blank">audio</a>
+            <a href="https://www.youtube.com/watch?v=0R6rZngcHGg" target="_blank" rel="noreferrer">audio</a>
           </li>
           <li>
-            <a href="https://www.svgbackgrounds.com/" target="_blank">background</a>
+            <a href="https://www.svgbackgrounds.com/" target="_blank" rel="noreferrer">background</a>
           </li>
           <li>
-            <a href="https://getcssscan.com/css-box-shadow-examples" target="_blank">button</a>
+            <a href="https://getcssscan.com/css-box-shadow-examples" target="_blank" rel="noreferrer">button</a>
           </li>
         </ul>
       </footer>

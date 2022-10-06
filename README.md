@@ -4,6 +4,7 @@
 
 - Add new projects
 - Deploy them on www.netlify.com
+- Change the build settings. Match them with old projects to be certain.
 - Add them to the portfolio.
 
 

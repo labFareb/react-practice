@@ -167,13 +167,15 @@ export default function App() {
         <p>Credits:</p>
         <ul>
           <li>
-            <a href="https://www.youtube.com/watch?v=0R6rZngcHGg">audio</a>
+            <a href="https://unsplash.com/">images</a>
           </li>
           <li>
-            <a href="https://www.svgbackgrounds.com/">background</a>
+            <a href="https://heropatterns.com/">background</a>
           </li>
           <li>
-            <a href="https://getcssscan.com/css-box-shadow-examples">button</a>
+            <a href="https://getcssscan.com/css-box-shadow-examples">
+              box shadow
+            </a>
           </li>
         </ul>
       </footer>

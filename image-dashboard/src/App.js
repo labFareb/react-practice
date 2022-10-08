@@ -1,26 +1,27 @@
 import "./App.css";
 import { useState } from "react";
 
-const Filter = ({ state, name, setTempList }) => {
+const Filter = ({ state, filter, setTempList, className, setSelectedFilter }) => {
   const handleClick = () => {
-    if (name === "everything") {
+    if (filter === "everything") {
       setTempList(state);
     } else {
       setTempList(
         state.filter((card) => {
-          return card.tags.includes(name);
+          return card.tags.includes(filter);
         })
       );
     }
+    setSelectedFilter(filter);
   };
   return (
-    <button className="app__filters__filter" onClick={handleClick}>
-      <p>{name}</p>
+    <button className={className} onClick={handleClick}>
+      <p>{filter}</p>
     </button>
   );
 };
 
-function Filters({ state, setState, tempList, setTempList }) {
+function Filters({ state, setTempList, selectedFilter, setSelectedFilter }) {
   const filters = [
     "everything",
     "building",
@@ -35,9 +36,16 @@ function Filters({ state, setState, tempList, setTempList }) {
       {filters.map((filter) => (
         <Filter
           state={state}
-          name={filter}
+          filter={filter}
           setTempList={setTempList}
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
           key={filter}
+          className={
+            selectedFilter === filter
+              ? "app__filters__filter selected"
+              : "app__filters__filter"
+          }
         />
       ))}
     </section>
@@ -54,7 +62,7 @@ const Card = (props) => {
   );
 };
 
-const Dashboard = ({ state, tempList }) => {
+const Dashboard = ({ tempList }) => {
   console.log(tempList);
   return (
     <section className="app__dashboard">
@@ -125,7 +133,7 @@ export default function App() {
       name: "Wayanad",
       src: "https://images.unsplash.com/photo-1614221905934-dabe8c9005cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1167&q=80",
       details:
-        "Kerala landscape with beautiful palm trees alongside a clean river",
+        "Historians believe that the human settlements existed in these parts for at least ten centuries before Christ.",
       tags: ["tree", "mountain"],
     },
     {
@@ -137,6 +145,7 @@ export default function App() {
     },
   ]);
   const [tempList, setTempList] = useState(state);
+  const [selectedFilter, setSelectedFilter] = useState("everything");
 
   return (
     <>
@@ -149,6 +158,8 @@ export default function App() {
           setState={setState}
           tempList={tempList}
           setTempList={setTempList}
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
         />
         <Dashboard state={state} tempList={tempList} />
       </main>

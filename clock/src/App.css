@@ -276,13 +276,13 @@ body {
   background-image: url("https://uploads-ssl.webflow.com/5d43138a62513bf6a05d9974/5d431f5162513b5f975ddc87_Dots.svg");
   background-repeat: no-repeat;
   background-position: 20% 40%;
-  background-size: 40%;
+  background-size: 30%;
+  color: #B33F4C;
 }
 
 .time-piece {
-  color: #B33F4C;
   font-size: calc(12vw);
-  min-height: 100vh;
+  min-height: 90vh;
   display: grid;
   place-items: center;
 }
@@ -294,4 +294,37 @@ body {
   line-height: 1;
   box-shadow: 2vw 2vw 0 #B33F4C;
   font-weight: 700;
+}
+
+/* ---------------------------------------------------------------
+Footer
+--------------------------------------------------------------- */
+
+footer {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  /* color: gray; */
+  gap: 0.5rem;
+}
+
+footer ul {
+  display: flex;
+  gap: 0.5rem;
+  padding-left: 0;
+}
+
+footer ul li {
+  list-style-type: none;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #B33F4C;
+}
+
+footer ul li a:hover {
+  color: #2d2d2d;
 }

@@ -264,20 +264,34 @@ Modular Classes
 --------------------------------------------------------------- */
 
 .container {
-  max-width: 100ch;
-  margin: 0 auto;
+  margin: 0 10px;
 }
 
 /* ---------------------------------------------------------------
-Modular Classes
+Custom Styles
 --------------------------------------------------------------- */
 
+body {
+  background-color: #FFD87E;
+  background-image: url("https://uploads-ssl.webflow.com/5d43138a62513bf6a05d9974/5d431f5162513b5f975ddc87_Dots.svg");
+  background-repeat: no-repeat;
+  background-position: 20% 40%;
+  background-size: 40%;
+}
 
 .time-piece {
-  font-size: 5rem;
-  /* width: 90vw; */
-  text-align: center;
-  height: 100vh;
-  
-  vertical-align: middle;
+  color: #B33F4C;
+  font-size: calc(12vw);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.time-display {
+  background-color: #FFD87E;
+  padding: 0.5rem 1rem;
+  border: 0.4vw solid;
+  line-height: 1;
+  box-shadow: 2vw 2vw 0 #B33F4C;
+  font-weight: 700;
 }

@@ -12,7 +12,11 @@ const Timer = () => {
     }, 1000);
   };
   useEffect(handleEffect, [time]);
-  return <p className="time-piece">{time}</p>;
+  return (
+    <div className="container time-piece">
+      <p className="time-display">{time}</p>
+    </div>
+  );
 };
 
 function App() {

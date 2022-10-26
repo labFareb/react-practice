@@ -1,38 +1,347 @@
-.App {
-  text-align: center;
+/*
+font-sizes: default - 1em, h3: 1.2em, h2: 1.4em, h1: 1.6em, line-height: 1.6 (always use line-height in the body and with a 'multiplier value' like mentioned above, and not percent/ems), margin: 0 auto, A good practice is to have the line-height as 1.5 times that of the font-size.<br>
+Change the font-sizes to make them responsive, like body: 16px + 1vw. Look up https://css-tricks.com/fun-viewport-units/
+Put css attributes in alphabetical order or any other order and stick to it.
+Generally, it's a good idea to make the labels and inputs display as block level elements and then display:inline those that are meant to be used in a single line. Attribute selectors can help in this, much like input[type=checkbox] {display:inline}. Creating a table of contents at the start using comments is a good idea.
+*/
+
+/* Remember to design Mobile First */
+/* LVHAF = link styling order */
+/* Hover + Active => Change background/text color for each in a different manner */
+/* Focus => Show outline/animation */
+/* Ensure to include a:focus back if it is reset.*/
+/* Use rems everywhere and ems when the element needs to scale */
+
+/* ---------------------------------------------------------------
+CSS Reset (minified)
+--------------------------------------------------------------- */
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* This is a slightly adjusted version of the box-sizing reset for ensuring that components inside an explicitly declared content-box are also content-box'ed */
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ---------------------------------------------------------------
+Variables
+--------------------------------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Raleway+Dots&family=Raleway:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,900&display=swap");
+
+:root {
+  /* Colors Begin */
+  --mustard: #ffc600;
+  --navy: #001f3f;
+  --blue: #0074d9;
+  --aqua: #7fdbff;
+  --teal: #39cccc;
+  --olive: #3d9970;
+  --green: #2ecc40;
+  --lime-green: #01ff70;
+  --yellow: #ffdc00;
+  --sunflower: #f1c40f;
+  --orange: #ff851b;
+  --maroon: #85144b;
+  --black: #111111;
+  --black-soothing: #272727;
+  --grey: #aaaaaa;
+  --concrete: #95a5a6;
+  --asbestos: #7f8c8d;
+  --silver: #dddddd;
+  --cloud-white: #ecf0f1;
+  --red: #ff4136;
+  --alizarin: #e74c3c;
+  --pomegranate: #c0392b;
+  --slick-red: #f93d66;
+  --peter-river: #3498db;
+  --belize-hole: #2980b9;
+  --fuchsia: #f012be;
+  --midnight-blue: #2c3e50;
+  --wet-asphalt: #34495e;
+  --purple: #b10dc9;
+  --amethyst: #9b59b6;
+  --wisteria: #8e44ad;
+  --bright-purple: #6d47d9;
+  --notification-green: #88ffd1;
+  /* Color Dark Theme Begin (re: Github Dark Mode) */
+  --dark-mode-black: #06090f;
+  --dark-mode-light-purple: #6e40c9;
+  --dark-mode-dark-purple: #271052;
+  --dark-mode-light-yellow: #f8e3a1;
+  --dark-mode-red: #da3633;
+  --dark-mode-orange: #f0883e;
+  --dark-mode-green: #3fb950;
+  --dark-mode-pink: #db61a2;
+  --dark-mode-blue: #388bfd;
+  /* Color Dark Theme End */
+
+  /* Colors End */
+
+  /* Font Values Begin */
+  /*
+  font-family: 'Courier Prime', monospace;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway Dots', cursive;
+  */
+  --title-font: "Courier Prime";
+  --text-font: "Courier Prime";
+  --tertiary-font: "Courier Prime";
+  /* Font Values End */
+
+  /* Font Sizes Begin */
+  --font-size-2down: 0.8em;
+  --font-size-1down: 0.9em;
+  --font-base-size: 16px;
+  --font-size-1up: 1.2em;
+  --font-size-2up: 1.4em;
+  --font-size-3up: 1.6em;
+  /* Font Sizes End */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ---------------------------------------------------------------
+My Base Styles
+--------------------------------------------------------------- */
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 auto;
+  font-family: var(--text-font);
+}
+
+h1 {
+  font-size: 1.6em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--title-font);
+}
+
+label,
+input {
+  display: block;
+}
+
+/* ---------------------------------------------------------------
+Modular Classes
+--------------------------------------------------------------- */
+
+.container {
+  margin: 100px;
+}
+
+/* ---------------------------------------------------------------
+Custom Styles
+--------------------------------------------------------------- */
+
+body {
+  /* background-color: #FFD87E; */
+  /* background-image: url("https://uploads-ssl.webflow.com/5d43138a62513bf6a05d9974/5d431f5162513b5f975ddc87_Dots.svg"); */
+  /* background-repeat: no-repeat; */
+  /* background-position: 20% 40%;
+  background-size: 30%; */
+  /* color: #B33F4C; */
+
+}
+
+.dashboard {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='126' height='84' viewBox='0 0 126 84'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fe3a93' fill-opacity='1'%3E%3Cpath d='M126 83v1H0v-2h40V42H0v-2h40V0h2v40h40V0h2v40h40V0h2v83zm-2-1V42H84v40h40zM82 42H42v40h40V42zm-50-6a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm96 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-42 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm30-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM20 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 24a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24-42a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.dashboard__text {
+  font-size: 3rem;
+  background-color: #d13ca4;
+  padding: 2rem;
+  opacity: 0.9;
+  display: grid;
+  place-items: center;
+
+}
+
+.dashboard__number {
+  font-size: 10rem;
+  background-color: #ffea04;
+  opacity: 0.9;
+  padding: 2rem;
+  writing-mode: sideways-lr;
+  text-orientation: mixed;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------------------------------------------------------------
+Footer
+--------------------------------------------------------------- */
+
+footer {
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  /* color: gray; */
+  gap: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+footer ul {
+  display: flex;
+  gap: 0.5rem;
+  padding-left: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer ul li {
+  list-style-type: none;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #d13ca4;
+}
+
+footer ul li a:hover {
+  color: black;
 }

@@ -158,53 +158,8 @@ Variables
 @import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Raleway+Dots&family=Raleway:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,900&display=swap");
 
 :root {
-  /* Colors Begin */
-  --mustard: #ffc600;
-  --navy: #001f3f;
-  --blue: #0074d9;
-  --aqua: #7fdbff;
-  --teal: #39cccc;
-  --olive: #3d9970;
-  --green: #2ecc40;
-  --lime-green: #01ff70;
-  --yellow: #ffdc00;
-  --sunflower: #f1c40f;
-  --orange: #ff851b;
-  --maroon: #85144b;
-  --black: #111111;
-  --black-soothing: #272727;
-  --grey: #aaaaaa;
-  --concrete: #95a5a6;
-  --asbestos: #7f8c8d;
-  --silver: #dddddd;
-  --cloud-white: #ecf0f1;
-  --red: #ff4136;
-  --alizarin: #e74c3c;
-  --pomegranate: #c0392b;
-  --slick-red: #f93d66;
-  --peter-river: #3498db;
-  --belize-hole: #2980b9;
-  --fuchsia: #f012be;
-  --midnight-blue: #2c3e50;
-  --wet-asphalt: #34495e;
-  --purple: #b10dc9;
-  --amethyst: #9b59b6;
-  --wisteria: #8e44ad;
-  --bright-purple: #6d47d9;
-  --notification-green: #88ffd1;
-  /* Color Dark Theme Begin (re: Github Dark Mode) */
-  --dark-mode-black: #06090f;
-  --dark-mode-light-purple: #6e40c9;
-  --dark-mode-dark-purple: #271052;
-  --dark-mode-light-yellow: #f8e3a1;
-  --dark-mode-red: #da3633;
-  --dark-mode-orange: #f0883e;
-  --dark-mode-green: #3fb950;
-  --dark-mode-pink: #db61a2;
-  --dark-mode-blue: #388bfd;
-  /* Color Dark Theme End */
-
-  /* Colors End */
+  --primary-color: #d13ca4;
+  --secondary-color: #ffea04;
 
   /* Font Values Begin */
   /*
@@ -216,15 +171,6 @@ Variables
   --text-font: "Courier Prime";
   --tertiary-font: "Courier Prime";
   /* Font Values End */
-
-  /* Font Sizes Begin */
-  --font-size-2down: 0.8em;
-  --font-size-1down: 0.9em;
-  --font-base-size: 16px;
-  --font-size-1up: 1.2em;
-  --font-size-2up: 1.4em;
-  --font-size-3up: 1.6em;
-  /* Font Sizes End */
 }
 
 /* ---------------------------------------------------------------
@@ -283,33 +229,50 @@ body {
   /* background-position: 20% 40%;
   background-size: 30%; */
   /* color: #B33F4C; */
+  background-color: bisque;
 
+  background-image: radial-gradient(var(--primary-color), var(--secondary-color));
+  /* filter: blur(10px); */
 }
 
 .dashboard {
   display: flex;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='126' height='84' viewBox='0 0 126 84'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23fe3a93' fill-opacity='1'%3E%3Cpath d='M126 83v1H0v-2h40V42H0v-2h40V0h2v40h40V0h2v40h40V0h2v83zm-2-1V42H84v40h40zM82 42H42v40h40V42zm-50-6a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm96 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm-42 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm30-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM20 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 24a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM8 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM50 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm54-12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm12 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 54a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24 0a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM92 78a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm24-42a4 4 0 1 1 0-8 4 4 0 0 1 0 8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: contain;
+  box-shadow: 0px 0px 40px #444;
 }
 
 .dashboard__text {
   font-size: 3rem;
-  background-color: #d13ca4;
+  background-color: var(--primary-color);
   padding: 2rem;
-  opacity: 0.9;
+  opacity: 0.8;
   display: grid;
   place-items: center;
-
 }
 
 .dashboard__number {
-  font-size: 10rem;
-  background-color: #ffea04;
-  opacity: 0.9;
+  font-size: 9rem;
+  background-color: var(--secondary-color);
+  opacity: 0.8;
   padding: 2rem;
   writing-mode: sideways-lr;
   text-orientation: mixed;
   display: grid;
   place-items: center;
+  font-weight: 700;
+}
+
+#user-number-input {
+  position: fixed;
+  /* top: 0; */
+  left: 30%;
+  /* right: 50%; */
+  top: 30%;
+  border: none;
+  width: 5%;
+  height: 5%;
+  font-size: 1.2rem;
 }
 
 /* ---------------------------------------------------------------
